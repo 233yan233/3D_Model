@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coca-Cola 3D Showcase</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        
+        <nav class="top-navbar">
+            <div class="logo">
+                <img src="	https://www.coca-cola.com/content/dam/onexp/global/icons/logo-white-large.svg" alt="Coca-Cola Logo" class="logo-img">
+                <h1 class="coca-cola-logo">Coca-Cola 3D Showcase</h1>
+            </div>
+            <div class="nav-controls">
+                <button class="nav-btn" onclick="toggleWire()" title="Toggle Wireframe">
+                    <i class="fas fa-draw-polygon"></i>
+                </button>
+                <div class="lighting-control">
+                    <button class="nav-btn" onclick="toggleLighting()" title="Toggle Lighting">
+                        <i class="fas fa-lightbulb"></i>
+                    </button>
+                    <input type="color" id="lightColor" value="#ffffff" onchange="updateLightColor(this.value)" title="Change Light Color">
+                </div>
+                <button class="nav-btn" onclick="resetModel()" title="Reset View">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+                <button class="nav-btn" onclick="squashAnimation()" title="Squash Animation">
+                    <i class="fas fa-compress-alt"></i>
+                </button>
+                <a href="about.html" class="nav-btn" title="About">
+                    <i class="fas fa-info-circle"></i>
+                </a>
+            </div>
+        </nav>
+
+        
+        <div class="main-content">
+            
+            <div class="model-panel">
+                <div class="model-header">
+                    <h2>Select Model</h2>
+                </div>
+                <div class="model-grid">
+                    <button class="model-card" onclick="loadModel('coke_can')">
+                        <div class="model-preview">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <div class="model-info">
+                            <h3>Coca-Cola Can</h3>
+                        </div>
+                    </button>
+                    <button class="model-card" onclick="loadModel('fanta_can')">
+                        <div class="model-preview">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <div class="model-info">
+                            <h3>Fanta Can</h3>
+                        </div>
+                    </button>
+                    <button class="model-card" onclick="loadModel('sprite_bottle')">
+                        <div class="model-preview">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <div class="model-info">
+                            <h3>Sprite Bottle</h3>
+                        </div>
+                    </button>
+                    <button class="model-card" onclick="loadModel('coke_bottle')">
+                        <div class="model-preview">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <div class="model-info">
+                            <h3>Coca-Cola Bottle</h3>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            
+            <div class="viewer-container">
+                <div id="viewer"></div>
+            </div>
+
+            
+            <div class="info-panel">
+                <div class="info-header">
+                    <h2>Product Information</h2>
+                </div>
+                <div class="info-content" id="info-content">
+                    Select a product to view information
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 
